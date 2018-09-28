@@ -9,6 +9,8 @@
     "mdx-deck": "^1.7.7"
   },
   "scripts": {
-    "start": "mdx-deck deck.mdx"
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx",
+    "pdf": "mdx-deck pdf deck.mdx"
   }
 }
