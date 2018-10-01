@@ -7,12 +7,15 @@
   "private": true,
   "devDependencies": {
     "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
     "mdx-deck": "^1.7.7",
+    "mdx-deck-code-surfer": "^0.4.1",
+    "raw-loader": "^0.5.1",
     "style-loader": "^0.23.0"
   },
   "scripts": {
     "start": "mdx-deck deck.mdx",
-    "build": "mdx-deck build deck.mdx",
+    "build": "mdx-deck build --no-html deck.mdx",
     "pdf": "mdx-deck pdf deck.mdx"
   },
   "dependencies": {
