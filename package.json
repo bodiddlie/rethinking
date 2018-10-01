@@ -6,11 +6,17 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "mdx-deck": "^1.7.7"
+    "css-loader": "^1.0.0",
+    "mdx-deck": "^1.7.7",
+    "style-loader": "^0.23.0"
   },
   "scripts": {
     "start": "mdx-deck deck.mdx",
     "build": "mdx-deck build deck.mdx",
     "pdf": "mdx-deck pdf deck.mdx"
+  },
+  "dependencies": {
+    "codemirror": "^5.40.2",
+    "react-codemirror2": "^5.1.0"
   }
 }
