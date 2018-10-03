@@ -33,6 +33,7 @@ export {default as theme} from './theme';
 ---
 ```notes
 - Simple component with basic state and click handlers
+- obviously contrived, but you get the idea
 ```
 
 <CodeSurfer title="What We're Testing" theme={nightOwl} code={require('!raw-loader!./components/example.js')} />
@@ -57,9 +58,13 @@ export default TopLayout
 ---
 ## The case against shallow rendering
 
-1. Testing implementation details
-2. False Confidence
-3. Not taking the user into account
+<ol style={{textAlign: 'left', fontSize: '1.5rem'}}>
+  <Appear>
+    <li>Testing implementation details</li>
+    <li>False Confidence</li>
+    <li>Not taking the user into account</li>
+  </Appear>
+</ol>
 
 ```notes
 - prev test look fine right?
@@ -68,7 +73,7 @@ export default TopLayout
 ```
 ---
 <CodeSurfer
-  title="A Simple Refactor"
+  title="A Simple Refactor..."
   theme={nightOwl}
   code={require('!raw-loader!./components/imp-details.js')}
   steps={[
@@ -76,19 +81,38 @@ export default TopLayout
   ]}
 />
 ---
-## Testing Implementation Details
+## Means Broken Tests
 
-- Top priority is to ensure the app is working
-- Focus on end result, not details
-
+❌❌❌❌😭
+---
 ```notes
-- ultimately what we care about is that the app works for the user
-- focus on end result, not details
+- Not the only way to fix
+- Could use Component Constructors, displayName, or prop selectors
+- but those are all still instances of testing implementation details
 ```
+
+<CodeSurfer
+  title="So Update the Tests"
+  theme={nightOwl}
+  code={require('!raw-loader!./components/imp-details.test.js')}
+  steps={[
+    {lines: [13, 19]}
+  ]}
+/>
 ---
-# False Confidence
----
-# Not taking the user into account
+## Why Not Shallow Rendering?
+
+<ul style={{textAlign: 'left', fontSize: '1.5em'}}>
+  <li>Testing Implementation Details
+    <ul>
+      <li>Top priority is to ensure the app is working</li>
+      <li>Focus on end result, not details</li>
+    </ul>
+  </li>
+  <li>False Confidence</li>
+  <li>Not taking the user into account</li>
+</ul>
+
 ---
 # It's still OK though
 
