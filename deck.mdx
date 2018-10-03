@@ -1,29 +1,46 @@
-import {Appear} from 'mdx-deck';
-import {Typical} from './components/typical';
-import {example, Example} from './components/example';
+import {Appear, Notes} from 'mdx-deck';
+import {Example} from './components/example';
 import {SplitHeader} from './components/split-header';
 import {CodeSurfer} from 'mdx-deck-code-surfer';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
+import TopLayout from './components/top-layout';
 export {default as theme} from './theme';
 
 # Rethinking Testing React Applications
 ## 🤔⚛️
 ---
-## About me
-```jsx
-<Test />
+## About This Talk
+
+```notes
+- Entirely subjective
+- What's important is what fits for you/your team
+- Not a slam of enzyme, purely personal preference
 ```
-Remove?
 ---
 ### Let's start with something profound
+
+```notes
+- Obvious, but why exactly
+- Confidence -> Shipping better code -> no late night pages
+```
 
 <Appear>
   <h2>Testing is Important</h2>
   <img src={require('file-loader!./public/duh.gif')} />
 </Appear>
----
 
-<CodeSurfer title="What We're Testing" theme={nightOwl} code={example} />
+---
+```notes
+- Simple component with basic state and click handlers
+```
+
+<CodeSurfer title="What We're Testing" theme={nightOwl} code={require('!raw-loader!./components/example.js')} />
+---
+export default TopLayout
+
+## What We're Testing
+
+<Example />
 ---
 ## Typical Testing In React
 

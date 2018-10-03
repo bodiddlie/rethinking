@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from './button';
+import Display from './display';
 
 export class Example extends React.Component {
   state = {
@@ -23,13 +25,9 @@ export class Example extends React.Component {
           justifyContent: 'space-between',
         }}
       >
-        <button type="button" onClick={this.decrement}>
-          Decrement
-        </button>
-        <span>{counter}</span>
-        <button type="button" onClick={this.increment}>
-          Increment
-        </button>
+        <Button onClick={this.decrement}>Decrement</Button>
+        <Display>{counter}</Display>
+        <Button onClick={this.increment}>Increment</Button>
       </div>
     );
   }
