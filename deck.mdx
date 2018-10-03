@@ -21,6 +21,7 @@ export {default as theme} from './theme';
 
 ```notes
 - Obvious, but why exactly
+- less bugs, protect from regressions,
 - Confidence -> Shipping better code -> no late night pages
 ```
 
@@ -42,18 +43,50 @@ export default TopLayout
 
 <Example />
 ---
-## Typical Testing In React
-
+<CodeSurfer 
+  title="Typical Testing In React" 
+  theme={nightOwl}
+  code={require('!raw-loader!./components/typical.test.js')}
+  steps={[
+    {range: [1, 4], notes: 'Import the necessary stuff'},
+    {range: [6, 9], notes: 'Test the intial state'},
+    {range: [11, 18], notes: 'Test the decrement click'},
+    {range: [20, 27], notes: 'Test the increment click'}
+  ]}
+/>
 ---
 ## The case against shallow rendering
 
-1. False Confidence
-2. Uber-mocking
+1. Testing implementation details
+2. False Confidence
 3. Not taking the user into account
+
+```notes
+- prev test look fine right?
+- there are issues though 
+- everything has tradeoffs
+```
+---
+<CodeSurfer
+  title="A Simple Refactor"
+  theme={nightOwl}
+  code={require('!raw-loader!./components/imp-details.js')}
+  steps={[
+    {lines: [2, 27, 29], notes: ''}
+  ]}
+/>
+---
+## Testing Implementation Details
+
+- Top priority is to ensure the app is working
+- Focus on end result, not details
+
+```notes
+- ultimately what we care about is that the app works for the user
+- focus on end result, not details
+```
 ---
 # False Confidence
----
-# Uber-mocking
 ---
 # Not taking the user into account
 ---
