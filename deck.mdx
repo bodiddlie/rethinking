@@ -4,6 +4,8 @@ import {SplitHeader} from './components/split-header';
 import {CodeSurfer} from 'mdx-deck-code-surfer';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
 import TopLayout from './components/top-layout';
+import {FalseConf2} from './components/false-conf2';
+import {BadFalseConf2} from './components/false-conf2-broken'
 export {default as theme} from './theme';
 
 # Rethinking Testing React Applications
@@ -58,7 +60,7 @@ export default TopLayout
 ---
 ## The case against shallow rendering
 
-<ol style={{textAlign: 'left', fontSize: '1.5rem'}}>
+<ol style={{textAlign: 'left', fontSize: '1.5em'}}>
   <Appear>
     <li>Testing implementation details</li>
     <li>False Confidence</li>
@@ -100,6 +102,57 @@ export default TopLayout
   ]}
 />
 ---
+## False Confidence
+
+```notes
+- shallow often requires bending things to our will to make tests pass
+- we've see green in the console
+- user sees red
+```
+---
+```notes
+- stupid, contrived example
+- just one counter, but assume maybe a number of counters
+```
+
+<CodeSurfer
+  title="Another simple refactor..."
+  theme={nightOwl}
+  code={require('!raw-loader!./components/false-conf1.js')}
+  steps={[
+    {lines: [3, 29], notes: 'Adding some kind of display component'}
+  ]}
+/>
+---
+<CodeSurfer
+  title="Tests Are Broken, So Now Fix"
+  theme={nightOwl}
+  code={require('!raw-loader!./components/false-conf1.test.js')}
+  steps={[
+    {lines: [14, 20]}
+  ]}
+/>
+---
+<CodeSurfer
+  title="A Bad Change in the Display Component"
+  theme={nightOwl}
+  code={require('!raw-loader!./components/display-code.js')}
+  steps={[
+    {range: [3, 7]},
+    {lines: [9]},
+  ]}
+/>
+---
+export default TopLayout
+
+## Yeah That's Not Right
+
+<BadFalseConf2 />
+---
+## Tests Still Passing
+
+## 😭😭😭😭😭
+---
 ## Why Not Shallow Rendering?
 
 <ul style={{textAlign: 'left', fontSize: '1.5em'}}>
@@ -109,18 +162,35 @@ export default TopLayout
       <li>Focus on end result, not details</li>
     </ul>
   </li>
-  <li>False Confidence</li>
+  <li>False Confidence
+    <ul>
+      <li>Something broken lower in the tree might not surface</li>
+      <li>Relying on untested (at this level) code to be right</li>
+    </ul>
+  </li>
   <li>Not taking the user into account</li>
 </ul>
 
 ---
-# It's still OK though
+```notes
+- providers are mostly logic based
+- do a shallow render and verify values are generated/provided correctly
+```
+
+## Where Shallow Is Still Good
 
 - Provider components
 ---
-# Always Be Considering
+## Enter React-Testing-Library
+
+<ul style={{textAlign: 'left', fontSize: '1.5em'}}>
+  <Appear>
+    <li>Testing UI from User perspective, not implementation details</li>
+    <li>Much higher confidence</li>
+  </Appear>
+</ul>
 ---
-# Test from the perspective of the user not the developer or the code
+## Test from the perspective of the user
 ---
 # Testing in broad strokes
 ---

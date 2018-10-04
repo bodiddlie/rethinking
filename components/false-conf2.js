@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from './button';
+import Display from './display';
 
-export class ImpDetails extends React.Component {
+export class FalseConf2 extends React.Component {
   state = {
     counter: 0,
   };
@@ -25,7 +26,7 @@ export class ImpDetails extends React.Component {
         }}
       >
         <Button onClick={this.decrement}>Decrement</Button>
-        <span data-testid="display">{counter}</span>
+        <Display label={1} value={counter} />
         <Button onClick={this.increment}>Increment</Button>
       </div>
     );
