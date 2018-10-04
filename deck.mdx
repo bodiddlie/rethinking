@@ -64,7 +64,6 @@ export default TopLayout
   <Appear>
     <li>Testing implementation details</li>
     <li>False Confidence</li>
-    <li>Not taking the user into account</li>
   </Appear>
 </ol>
 
@@ -191,24 +190,91 @@ export default TopLayout
 </ul>
 ---
 ## Test from the perspective of the user
----
-# Testing in broad strokes
----
-# Yes, this is integration testing of a sort
----
-# Integration vs Unit 
----
-# Lots of logic in UI is a code smell
 
-- Pull logic out into module and unit test
-- Mocking instance methods is code smell, move into modules
+- Get elements with `getByText`, `getByLabelText`, `getByTestId`, etc.
+- Think about content in a semantic and user oriented way
+- Pushes toward more accessible UI
+- Assert that user behavior drives app, not implmentation details
 ---
-# Test UI in sensible chunks
+<CodeSurfer
+  title="No More Implementation Details"
+  theme={nightOwl}
+  code={require('!raw-loader!./components/example-rtl.test.js')}
+  steps={[
+    {range: [1, 3], notes: 'New Imports'},
+    {lines: [7], notes: 'Full Render requires DOM cleanup'},
+    {range: [9, 12], notes: 'Interact & assert on the UI'},
+    {ranges: [[14, 18], [20, 24]]},
+    {lines:[16, 22], notes: ''}
+  ]}
+/>
+---
+## Feel More Confident
 
-- Yes it makes sense to test that a button component functions properly on it's own
-- If component only makes sense in context of surrounding components, test the bigger picture
+- Full render means we're not hiding child components
+- If the app is broken for the user, the test is broken for us
+- Assert that content is correct, not state
 ---
-# Cypress for e2e or integration+
+<CodeSurfer
+  title="No More False Positives"
+  theme={nightOwl}
+  code={require('!raw-loader!./components/confident-rtl.test.js')}
+  steps={[
+    {lines: [5], notes: 'This component passed our tests before...'},
+    {range: [9, 24], notes: 'Test code is identical to last suite...'}
+  ]}
+/>
+---
+## Some Arguments Against
+
+- This is integration testing not unit testing
+- Need to unit test logic
+```notes
+```
+---
+## Yes, this is integration testing of a sort
+### And??????
+---
+## Integration vs Unit 
+
+<img src={require('file-loader!./public/rauch.png')} />
+
+```notes
+- already covered tests are important
+- too many tests is hard to maintain
+- integration tests give greater confidence
+- yes slower, but again, not too many
+```
+---
+## Need to Unit Test Logic?
+
+<ul style={{textAlign: 'left', fontSize: '1.5em'}}>
+  <Appear>
+    <li>Absolutely! See duh.gif</li>
+    <li>Too much logic in UI is code smell</li>
+    <li>Pull logic out into module and unit test</li>
+    <li>Mocking instance methods is a code smell, move into modules</li>
+  </Appear>
+</ul>
+---
+## Test UI in sensible chunks
+
+<ul style={{textAlign: 'left', fontSize: '1.5em'}}>
+  <Appear>
+    <li>Test at the hightest level that makes sense.</li>
+    <li>Good practice to lift state up, why not lift tests?</li>
+    <li>Test too low - hard too see big picture - implementation details</li>
+    <li>Test too high - too zoomed out - harder to make it work</li>
+  </Appear>
+</ul>
+
+```notes
+- about finding the good middle ground
+- comp only makes sense in context of surrounding comps? go up
+- mocking out tons of network calls, or test way too slow? go down
+```
+---
+# Cypress for e2e or integration
 ---
 # Mocking/Stubbing in e2e 
 
