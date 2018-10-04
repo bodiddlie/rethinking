@@ -11,14 +11,19 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "chance": "^1.0.16",
+    "concurrently": "^4.0.1",
     "css-loader": "^1.0.0",
+    "cypress": "^3.1.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "file-loader": "^2.0.0",
     "jest": "^23.6.0",
     "jest-dom": "^2.0.2",
+    "json-server": "^0.14.0",
     "mdx-deck": "^1.7.7",
     "mdx-deck-code-surfer": "^0.4.1",
+    "nodemon": "^1.18.4",
     "raw-loader": "^0.5.1",
     "react-test-renderer": "^16.5.2",
     "react-testing-library": "^5.1.1",
@@ -27,15 +32,29 @@
   },
   "scripts": {
     "start": "mdx-deck deck.mdx",
+    "start:server": "concurrently \"yarn run db:watch\" \"react-scripts start\"",
+    "db:watch": "nodemon --watch db db/server.js",
+    "cypress:open": "cypress open",
+    "cypress": "cypress run",
     "build": "mdx-deck build --no-html deck.mdx",
     "pdf": "mdx-deck pdf deck.mdx",
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "codemirror": "^5.40.2",
-    "react-codemirror2": "^5.1.0"
+    "react": "^16.5.2",
+    "react-codemirror2": "^5.1.0",
+    "react-dom": "^16.5.2",
+    "react-scripts": "^2.0.4"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./setupTests.js"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
