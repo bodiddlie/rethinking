@@ -15,13 +15,13 @@ export {default as theme} from './theme';
 ## About This Talk
 
 - Entirely subjective
+- Just my personal preference
 - What's important is what fits for you/your team
-- Not a slam of enzyme, purely personal preference
 
 ```notes
 - Entirely subjective
 - What's important is what fits for you/your team
-- Not a slam of enzyme, purely personal preference
+- No emperical data, just contrived but realistic examples
 ```
 ---
 ### Let's start with something profound
@@ -43,7 +43,11 @@ export {default as theme} from './theme';
 - obviously contrived, but you get the idea
 ```
 
-<CodeSurfer title="What We're Testing" theme={nightOwl} code={require('!raw-loader!./components/example.js')} />
+<CodeSurfer 
+  title="What We're Testing" 
+  theme={nightOwl} 
+  code={require('!raw-loader!./components/example.js')}
+/>
 ---
 export default TopLayout
 
@@ -104,7 +108,7 @@ test:impbroke
 ❌❌❌❌😭
 ---
 ```notes
-test:impbroke
+test:imp
 - Not the only way to fix
 - Could use Component Constructors, displayName, or prop selectors
 - but those are all still instances of testing implementation details
@@ -132,7 +136,6 @@ test:impbroke
 ```
 ---
 ```notes
-test:false
 - stupid, contrived example
 - just one counter, but assume maybe a number of counters
 ```
@@ -147,6 +150,10 @@ test:false
 />
 ---
 export default TopLayout
+
+```notes
+test:false
+```
 
 ## New Display
 
@@ -165,6 +172,9 @@ test:falsefix
   ]}
 />
 ---
+```notes
+- very contrived example, but illustrates problem
+```
 <CodeSurfer
   title="A Bad Change in the Display Component"
   theme={nightOwl}
@@ -179,6 +189,7 @@ export default TopLayout
 
 ```notes
 test:falsestill after demoing!!!!!!
+- let's look at the tests?
 ```
 
 ## Yeah That's Not Right
@@ -211,12 +222,20 @@ test:falsestill after demoing!!!!!!
 ```notes
 - providers are mostly logic based
 - do a shallow render and verify values are generated/provided correctly
+- fetch component as example
 ```
 
 ## Where Shallow Is Still Good
 
 - Provider components
+- Pure logic components with no UI
 ---
+```notes
+- Kent C Dodds created
+- ethos of taking bigger picture into account
+- focus on app means higher confidence.
+```
+
 ## Enter React-Testing-Library
 
 <ul style={{textAlign: 'left', fontSize: '1.5em'}}>
@@ -246,7 +265,7 @@ test:nomore
     {lines: [7], notes: 'Full Render requires DOM cleanup'},
     {range: [9, 12], notes: 'Interact & assert on the UI'},
     {ranges: [[14, 18], [20, 24]]},
-    {lines:[16, 22], notes: ''}
+    {lines:[16, 22], notes: 'Get the buttons by their text'}
   ]}
 />
 ---
@@ -274,6 +293,7 @@ test:confident
 
 - This is integration testing not unit testing
 - Need to unit test logic
+
 ```notes
 ```
 ---
@@ -337,7 +357,15 @@ test:confident
 
 ---
 ## DEMO
+
+```notes
+- yarn start:server
+```
 ---
+```notes
+- fixtures pull data from json easily
+```
+
 <CodeSurfer
   title="Testing is Super Simple"
   theme={nightOwl}
@@ -351,6 +379,12 @@ test:confident
 />
 ---
 ## DEMO
+
+```notes
+- yarn cypress:open 
+- show command log to show changes
+- show clicking on element to get selector
+```
 ---
 ## Mocking/Stubbing in e2e 
 
