@@ -38,7 +38,15 @@
     "cypress": "cypress run",
     "build": "mdx-deck build --no-html deck.mdx",
     "pdf": "mdx-deck pdf deck.mdx",
-    "test": "jest"
+    "test": "jest",
+    "test:typical": "jest typical.test.js",
+    "test:impbroke": "jest imp-details-broken.test.js",
+    "test:imp": "jest imp-details.test.js",
+    "test:false": "jest false-conf1-broken.test.js",
+    "test:falsefix": "jest false-conf1.test.js",
+    "test:falsestill": "jest false-conf2-broken.test.js",
+    "test:nomore": "jest example-rtl.test.js",
+    "test:confident": "jest confident-rtl.test.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

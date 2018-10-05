@@ -50,6 +50,10 @@ export default TopLayout
 
 <Example />
 ---
+```notes
+test:typical
+```
+
 <CodeSurfer 
   title="Typical Testing In React" 
   theme={nightOwl}
@@ -86,11 +90,16 @@ export default TopLayout
   ]}
 />
 ---
+```notes
+test:impbroke
+```
+
 ## Means Broken Tests
 
 ❌❌❌❌😭
 ---
 ```notes
+test:impbroke
 - Not the only way to fix
 - Could use Component Constructors, displayName, or prop selectors
 - but those are all still instances of testing implementation details
@@ -107,6 +116,10 @@ export default TopLayout
 ---
 ## False Confidence
 
+- Shallow often makes us do crazy things to make tests pass
+- Test console is green
+- User sees red
+
 ```notes
 - shallow often requires bending things to our will to make tests pass
 - we've see green in the console
@@ -114,6 +127,7 @@ export default TopLayout
 ```
 ---
 ```notes
+test:false
 - stupid, contrived example
 - just one counter, but assume maybe a number of counters
 ```
@@ -127,6 +141,10 @@ export default TopLayout
   ]}
 />
 ---
+```notes
+test:falsefix
+```
+
 <CodeSurfer
   title="Tests Are Broken, So Now Fix"
   theme={nightOwl}
@@ -200,6 +218,10 @@ export default TopLayout
 - Pushes toward more accessible UI
 - Assert that user behavior drives app, not implmentation details
 ---
+```notes
+test:nomore
+```
+
 <CodeSurfer
   title="No More Implementation Details"
   theme={nightOwl}
@@ -219,6 +241,10 @@ export default TopLayout
 - If the app is broken for the user, the test is broken for us
 - Assert that content is correct, not state
 ---
+```notes
+test:confident
+```
+
 <CodeSurfer
   title="No More False Positives"
   theme={nightOwl}
@@ -235,9 +261,6 @@ export default TopLayout
 - Need to unit test logic
 ```notes
 ```
----
-## Yes, this is integration testing of a sort
-### And??????
 ---
 ## Integration vs Unit 
 
