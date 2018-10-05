@@ -51,6 +51,7 @@
   "jest": {
     "setupTestFrameworkScriptFile": "./setupTests.js"
   },
+  "proxy": "http://localhost:5002",
   "browserslist": [
     ">0.2%",
     "not dead",
