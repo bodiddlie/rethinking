@@ -36,7 +36,7 @@
     "db:watch": "nodemon --watch db db/server.js",
     "cypress:open": "cypress open",
     "cypress": "cypress run",
-    "build": "yarn run html && yarn run screenshot",
+    "build": "yarn run html && cp ./public/card.png ./dist/card.png",
     "pdf": "mdx-deck pdf deck.mdx",
     "test": "jest",
     "test:typical": "jest typical.test.js",
