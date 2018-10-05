@@ -13,6 +13,10 @@ export {default as theme} from './theme';
 ---
 ## About This Talk
 
+- Entirely subjective
+- What's important is what fits for you/your team
+- Not a slam of enzyme, purely personal preference
+
 ```notes
 - Entirely subjective
 - What's important is what fits for you/your team
@@ -291,27 +295,41 @@ export default TopLayout
 - Selenium has always been somewhat torturous to use
 - Easy to get started with
 - Much nicer API to work with
+- Even a `cypress-testing-library` available
 
-```notes
-- need a server running
-- visit app
-- interact with the app
-- assert on behavior
-```
 ---
 ## DEMO
 ---
-# Mocking/Stubbing in e2e 
-
-Consider your application and your environment. Ideally, a e2e test is truly e2e, but we don't
-always have that luxury. Staging dbs for testing, resetting, auth, etc can sometimes stand in 
-they way. Containerization and the ease of spinning up a cloud service helps a lot, so use those
-if available and test as wide as possible.
-
-However, if you are constrained, don't feel like you have to ignore these tests. There's nothing
-wrong with mocking out the backend API calls and making sure your frontend app works properly. 
+<CodeSurfer
+  title="Testing is Super Simple"
+  theme={nightOwl}
+  code={require('!raw-loader!./cypress/integration/people.spec.js')}
+  steps={[
+    {range: [3, 5], notes: 'Mocking out the backend'},
+    {lines: [6], notes: 'Visit the app'},
+    {lines: [7], notes: 'Click on the button'},
+    {lines: [8], notes: 'Assert value is what you expext'},
+  ]}
+/>
 ---
-# Confidence > Coverage
+## DEMO
+---
+## Mocking/Stubbing in e2e 
+
+- Consider your environment
+- If you can test against a real backend, go for it
+- Don't feel it's absolutely necessary
+
+```notes
+- ideally, a e2e test is truly e2e
+- don't always have luxury
+- staging dbs for testing, resetting, auth, etc, can get in way
+- containers and other tech can help
+- test as wide as possible
+- nothing wrong with mocking and making sure frontend works
+```
+---
+## Confidence > Coverage
 
 I'd rather have 50% coverage but be 100% confident that the vital parts won't break, than have
 100% coverage and need to have tums and a pager on my nightstand.
