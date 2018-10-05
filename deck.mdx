@@ -5,6 +5,7 @@ import {CodeSurfer} from 'mdx-deck-code-surfer';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
 import TopLayout from './components/top-layout';
 import {FalseConf2} from './components/false-conf2';
+import {FalseConf1} from './components/false-conf1';
 import {BadFalseConf2} from './components/false-conf2-broken'
 export {default as theme} from './theme';
 
@@ -81,6 +82,10 @@ test:typical
 - everything has tradeoffs
 ```
 ---
+```notes
+- Introducing some kind of button component
+```
+
 <CodeSurfer
   title="A Simple Refactor..."
   theme={nightOwl}
@@ -117,8 +122,8 @@ test:impbroke
 ## False Confidence
 
 - Shallow often makes us do crazy things to make tests pass
-- Test console is green
-- User sees red
+- Allows for situations where app is broken but tests pass
+- Test console is green, user sees red
 
 ```notes
 - shallow often requires bending things to our will to make tests pass
@@ -140,6 +145,12 @@ test:false
     {lines: [3, 29], notes: 'Adding some kind of display component'}
   ]}
 />
+---
+export default TopLayout
+
+## New Display
+
+<FalseConf1 />
 ---
 ```notes
 test:falsefix
@@ -165,6 +176,10 @@ test:falsefix
 />
 ---
 export default TopLayout
+
+```notes
+test:falsestill after demoing!!!!!!
+```
 
 ## Yeah That's Not Right
 
