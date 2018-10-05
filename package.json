@@ -36,7 +36,7 @@
     "db:watch": "nodemon --watch db db/server.js",
     "cypress:open": "cypress open",
     "cypress": "cypress run",
-    "build": "mdx-deck build --no-html deck.mdx",
+    "build": "yarn run html && yarn run screenshot",
     "pdf": "mdx-deck pdf deck.mdx",
     "test": "jest",
     "test:typical": "jest typical.test.js",
@@ -46,7 +46,9 @@
     "test:falsefix": "jest false-conf1.test.js",
     "test:falsestill": "jest false-conf2-broken.test.js",
     "test:nomore": "jest example-rtl.test.js",
-    "test:confident": "jest confident-rtl.test.js"
+    "test:confident": "jest confident-rtl.test.js",
+    "screenshot": "mdx-deck screenshot deck.mdx",
+    "html": "mdx-deck build --no-html deck.mdx"
   },
   "dependencies": {
     "axios": "^0.18.0",
