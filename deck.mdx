@@ -302,6 +302,18 @@ test:confident
   ]}
 />
 ---
+## React-Testing-Library API ❤️
+
+- `get*` and `query*` methods are **so** nice to work with
+- working with forms is 👍
+- `jest-dom` provides some very helpful expect extensions
+
+```notes
+- get and query functions are from dom-testing-library
+- getByLabelText is super handy for filling forms like a user
+- toHaveTextContent and toBeVisible are very handy
+```
+---
 ## Some Arguments Against
 
 - This is integration testing not unit testing
@@ -347,18 +359,6 @@ test:confident
 - about finding the good middle ground
 - comp only makes sense in context of surrounding comps? go up
 - mocking out tons of network calls, or test way too slow? go down
-```
----
-## React-Testing-Library API ❤️
-
-- `get*` and `query*` methods are **so** nice to work with
-- working with forms is 👍
-- `jest-dom` provides some very helpful expect extensions
-
-```notes
-- get and query functions are from dom-testing-library
-- getByLabelText is super handy for filling forms like a user
-- toHaveTextContent and toBeVisible are very handy
 ```
 ---
 ## Cypress for e2e or integration
